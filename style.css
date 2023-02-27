@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&family=Inconsolata:wght@200;300;400;500;600;700;800;900&family=Jomhuria&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Qwitcher+Grypen:wght@400;700&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;1,500&display=swap');
+
+:root{
+   --option:#4169e1;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    transition: 0.3s;
+}
+.project {
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+/* loading */
+
+.lodaing{
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lodaing span {
+color: var(--option);
+font-size: 25px;
+letter-spacing: 0.5px;
+}
+
+.lodaing .ring {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border-radius: 50%;
+    border: 15px solid var(--option);
+    border-left-color:transparent ;
+    border-right-color:transparent ;
+    animation: loding 1.5s linear infinite ;
+}
+
+@keyframes loding {
+    0%{
+        transform: rotate(0);
+        
+    }
+    50%{
+        transform: rotate(180deg);
+        
+    }
+    100%{
+        transform: rotate(360deg);
+      
+    }
+}
+
+
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 20%);
+}
+header .logo {
+    font-size: 30px;
+    border: 2px solid  var(--option) ;
+    border-radius: 50%;
+    padding: 1px 12px;
+    color: var(--option);
+}
+header .ul{
+    display: flex;
+}
+header .ul ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin-right: 20px;
+}
+header .ul ul li {
+    margin:  0 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+header .ul ul li.active{
+    color: var(--option);
+}
+header .ul ul li:hover {
+ color: var(--option);
+}
+header .ul .icons {
+    margin-right: 30px;
+    margin-top: 2px;
+    width: 30px;
+}
+header .ul .icons  i.moon {
+    font-size: 22px;
+    cursor: pointer;
+}
+header  .ul .icons i.sun {
+    font-size: 22px;
+    cursor: pointer;
+    display: none;
+
+}
+header .ul .burger-menu {
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    display: none;
+}
+header .ul .burger-menu span {
+display: block;
+  width: 35px;
+  height: 2px;
+  background-color: var(--option);
+  margin: 7px 0;
+  transition: 0.3s;
+}
+.show{
+    width: 80% !important;
+    margin-right: 0;
+}
+
+header .ul .burger-menu.is-active span:nth-child(1){
+    transform: translate(-5px ,9px) rotate(45deg);
+}
+header .ul .burger-menu.is-active span:nth-child(2){
+    display: none;
+}
+header .ul .burger-menu.is-active span:nth-child(3){
+    transform: translate(-6px , 0px) rotate(-45deg);
+}
+header .ul .burger-menu.is-active span{
+    background-color:var(--option);
+}
+
+
+@media (min-width:300px) and (max-width:767px) {
+    header {
+        overflow: hidden;
+    }
+    header .ul .burger-menu {
+        display: block;  
+      }
+    header .ul .burger-menu span {
+       color: white;
+        }
+    header .ul ul {
+        display: flex;
+        flex-direction: column;
+        padding-top: 100px;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        right: 0;
+        background-color: #212121;
+        height: 100vh;
+        width:0;
+        margin-right: -50px;
+        transition: 0.3s;
+        overflow: hidden;
+    }
+    header .ul ul li{
+        margin: 20px 0;
+        font-size: 22px;
+        color: #f1f1f1;
+        width: 200px;
+        margin-right: 30px;
+    }
+    header .ul .icons {
+        margin-top: 7px;
+    }
+}
+
+/* Landing */
+
+.landing {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.landing .info {
+    margin-top: 150px;
+    width: 50%;
+}
+.landing .info .title {
+ font-size: 50px;
+ font-weight: 900;
+ color: gray;
+ margin-bottom: 10px;
+ position: relative;
+}
+.landing .info .title::after{
+        content: ".";
+        transform: scale(0.4);
+        display: inline-block;
+        position: absolute;
+        top: 15px;
+        bottom: 0;
+        animation: opacitying 1s infinite ease-in-out;
+        margin: 0;
+        padding: 0;
+        color: var(--option);
+}
+@keyframes opacitying {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+
+}
+.landing .info .title span {
+    color: var(--option);
+    margin-left: 15px;
+    font-weight: 500;
+    font-size: 40px;
+}
+.landing .info p {
+    width: 95%;
+    font-size: 18px;
+    color: gray;
+    line-height: 30px;
+    word-spacing: 2px;
+}
+.landing .info .social i {
+    margin:  15px 10px;
+    font-size: 20px;
+    background-color: var(--option);
+    padding: 8px;
+    color: white;
+    border-radius: 50%;
+}
+.landing .info .social i.facebook {
+    padding: 8px 10px ;
+}
+.landing .image {
+    margin-top: 150px;
+    width: 50%;
+}
+.landing .image img {
+    margin-left: 200px;
+    width: 60%;
+
+    width: 350px;
+    height: 450px;
+    transition: 0.3s;
+    outline: 5px solid var(--option);
+    border: 10px solid transparent ;
+    border-radius: 79% 21% 80% 9% / 25% 62% 38% 75%;
+    animation: img 5s ease-in-out infinite;
+}
+@keyframes img {
+ 
+0% {
+    border-radius: 79% 21% 80% 9% / 25% 62% 38% 75%;
+}
+40% {
+    border-radius: 25% 75% 25% 75% / 75% 25% 75% 25%;
+}
+70% {
+    border-radius: 81% 19% 86% 14% / 19% 85% 15% 81%;
+}
+100% {
+    border-radius: 79% 21% 80% 9% / 25% 62% 38% 75%;
+}
+
+}
+
+
+.landing .change-color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    left:-98px;
+    top: 35%;
+    background-color: black;
+    padding: 10px;
+    display: flex;
+    border-radius: 0px 5px 5px 0px;
+    transition: 0.5s;
+}
+.landing .change-color:hover{
+    left:0px;
+}
+.landing .change-color i {
+    color: var(--option);
+    font-size: 30px;
+    margin-left: 7px;
+    animation: rotate 1.8s linear infinite;
+}
+@keyframes rotate {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(359deg);
+    }
+}
+.landing .change-color span {
+    background-color: var(--option);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.landing .change-color span.blue{
+    background-color: #4169e1;
+}
+.landing .change-color span.orange{
+    background-color: #ff4321;
+}
+.landing .change-color span.green{
+    background-color: #008000;
+}
+
+@media (min-width:300px) and (max-width:767px) {
+    .landing {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .landing .info {
+        margin-top: 20px;
+        width: 100%;
+    }.landing .image {
+        width: 100%;
+    }
+    .landing .image img {
+        margin-left: 30px;
+        width: 250px;
+        height: 350px;
+    }
+    .landing .info .title {
+        font-size: 40px;
+       }
+       .landing .info .title span {
+           font-size: 35px;
+       }
+       .landing .info p {
+        width: 95%;
+        font-size: 15px;
+    }
+    .landing .change-color{
+        padding: 5px 8px;
+        top: 13%;
+        left: -93px;
+    }
+    .landing .change-color i{
+        font-size: 25px;
+    }
+    .landing .change-color span {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+
+/* Dark mode */
+
+body.dark{
+    background-color: #212121;
+}
+body.dark .moon {
+ display: none;
+}
+body.dark .sun {
+    display: block !important;
+}
+
+body.dark header .ul .icons  i {
+     color: white;
+}
+
+body.dark  .ul ul li:not(li.active) {
+    color: white;
+}
+body.dark  .ul ul li:hover {
+    color: var(--option) !important;
+}
+
